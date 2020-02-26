@@ -103,12 +103,20 @@
             <artifactId>kudu-spark2_2.11</artifactId>
             <version>1.7.0</version>
         </dependency>
-<!--https://prestodb.io/docs/current/installation/jdbc.html        -->
+        <!--https://prestodb.io/docs/current/installation/jdbc.html        -->
         <dependency>
             <groupId>com.facebook.presto</groupId>
             <artifactId>presto-jdbc</artifactId>
             <version>0.231.1</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/redis.clients/jedis -->
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>3.0.1</version>
+        </dependency>
+
 
         <!-- Test -->
         <dependency>

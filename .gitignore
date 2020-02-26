@@ -1,4 +1,5 @@
 .idea/
-sparksql.iml
 target/
 output/
+metastore_db/
+spark-warehouse/
