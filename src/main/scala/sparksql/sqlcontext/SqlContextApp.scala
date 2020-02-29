@@ -9,7 +9,7 @@ object SqlContextApp {
     val sparkContext: SparkContext = new SparkContext(conf)
     val context: SQLContext = new SQLContext(sparkContext)
 
-    val frame: DataFrame = context.read.text("D:\\WHU\\sparksql\\data\\wc.txt")
+    val frame: DataFrame = context.read.text("data/input.txt")
 
     frame.show()
 

@@ -75,7 +75,7 @@ object InteroperatingWithRDDsApp {
           StructField("age", IntegerType, false) :: Nil)
 
     // Convert records of the RDD (people) to Rows
-    val rowRDD = peopleRDD
+    val rowRDD: RDD[Row] = peopleRDD
       .map(_.split(","))
       .map(attributes => Row(attributes(0), attributes(1).trim.toInt))
 
