@@ -257,10 +257,12 @@
     </dependencyManagement>
 
     <build>
+        <!--注意： 有些scala 代码调用了 java的代码，在线上编译打包运行时，找不要引用的java文件
+        把下面两行注释解决问题-->
         <!--该元素设置了项目源码目录，当构建项目的时候，构建系统会编译目录里的源码。该路径是相对于pom.xml的相对路径。-->
-        <sourceDirectory>src/main/scala</sourceDirectory>
+<!--        <sourceDirectory>src/main/scala</sourceDirectory>-->
         <!--该元素设置了项目单元测试使用的源码目录，当测试项目的时候，构建系统会编译目录里的源码。该路径是相对于pom.xml的相对路径。-->
-        <testSourceDirectory>src/test/scala</testSourceDirectory>
+<!--        <testSourceDirectory>src/test/scala</testSourceDirectory>-->
         <plugins>
             <plugin>
                 <!-- see http://davidb.github.com/scala-maven-plugin -->

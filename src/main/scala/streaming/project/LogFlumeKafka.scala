@@ -7,7 +7,8 @@ import org.apache.spark.streaming.kafka010.ConsumerStrategies.Subscribe
 import org.apache.spark.streaming.kafka010.KafkaUtils
 import org.apache.spark.streaming.kafka010.LocationStrategies.PreferConsistent
 import org.apache.spark.streaming.{Seconds, StreamingContext}
-import streaming.project.domain.ClickLog
+import streaming.project.dao.{CourseClickCountDAO, CourseSearchClickCountDAO}
+import streaming.project.domain.{ClickLog, CourseClickCount, CourseSearchClickCount}
 import utils.DateUtils
 
 import scala.collection.mutable.ListBuffer
@@ -85,6 +86,9 @@ object LogFlumeKafka {
     cleanData.map(x => {
 
       /**
+       *
+       *
+       * todo: 使用 foreachRDD + foreachPartition + foreach 性能考虑
        * https://www.sogou.com/web?query=Spark SQL实战
        *
        * ==>
@@ -103,6 +107,7 @@ object LogFlumeKafka {
       (x._3.substring(0,8) + "_" + x._1 + "_" + x._2 , 1)
     }).reduceByKey(_ + _).foreachRDD(rdd => {
       rdd.foreachPartition(partitionRecords => {
+        // 每一个分区建一个
         val list = new ListBuffer[CourseSearchClickCount]
 
         partitionRecords.foreach(pair => {

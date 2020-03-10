@@ -1,7 +1,7 @@
 package streaming.project.dao
 
-import com.imooc.spark.project.domain.{CourseClickCount, CourseSearchClickCount}
-import com.imooc.spark.project.utils.HBaseUtils
+import streaming.project.domain.{CourseClickCount, CourseSearchClickCount}
+import streaming.project.utils.HBaseUtils
 import org.apache.hadoop.hbase.client.Get
 import org.apache.hadoop.hbase.util.Bytes
 

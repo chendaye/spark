@@ -1,3 +1,5 @@
+
+# flume + kafka + spark Streaming 打包线上运行
 spark-submit --master local[3] \
 --name ImoocStatStreamingApp \
 --packages org.apache.spark:spark-streaming-kafka-0-8_2.11:2.2.0 \
