@@ -13,6 +13,7 @@
         <spark.version>2.4.5</spark.version>
         <hbase.version>1.2.0-cdh5.15.2</hbase.version>
         <hadoop.version>2.6.0-cdh5.15.2</hadoop.version>
+        <kafka.version>0.10.1.1</kafka.version>
     </properties>
 
 
@@ -111,10 +112,47 @@
             <version>${spark.version}</version>
         </dependency>
 
+        <!--添加kafka相关的依赖-->
         <dependency>
             <groupId>org.apache.spark</groupId>
             <artifactId>spark-streaming-kafka-0-10_2.11</artifactId>
             <version>${spark.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.kafka</groupId>
+            <artifactId>kafka_2.11</artifactId>
+            <version>${kafka.version}</version>
+        </dependency>
+
+        <!-- kafka_2.11-0.10.1.1.tgz的依赖 -->
+        <dependency>
+            <groupId>org.apache.kafka</groupId>
+            <artifactId>kafka-clients</artifactId>
+            <version>${kafka.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.kafka</groupId>
+            <artifactId>kafka-streams</artifactId>
+            <version>${kafka.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.kafka</groupId>
+            <artifactId>connect-api</artifactId>
+            <version>${kafka.version}</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.51</version>
+        </dependency>
+        <!--日志追加到flume-->
+        <dependency>
+            <groupId>org.apache.flume.flume-ng-clients</groupId>
+            <artifactId>flume-ng-log4jappender</artifactId>
+            <version>1.6.0</version>
         </dependency>
 
         <dependency>
@@ -160,26 +198,30 @@
             <version>3.0.1</version>
         </dependency>
 
-<!--        &lt;!&ndash;解析IP地址&ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>com.ggstar</groupId>-->
-<!--            <artifactId>ipdatabase</artifactId>-->
-<!--            <version>1.0</version>-->
-<!--            <scope>system</scope>-->
-<!--            <systemPath>${project.basedir}/lib/ipdatabase-1.0-SNAPSHOT.jar</systemPath>-->
-<!--        </dependency>-->
+        <!-- Spark Streaming整合Flume 依赖-->
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-streaming-flume_2.11</artifactId>
+            <version>${spark.version}</version>
+        </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>org.apache.poi</groupId>-->
-<!--            <artifactId>poi-ooxml</artifactId>-->
-<!--            <version>3.14</version>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-streaming-flume_2.11</artifactId>
+            <version>${spark.version}</version>
+        </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>org.apache.poi</groupId>-->
-<!--            <artifactId>poi</artifactId>-->
-<!--            <version>3.14</version>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-streaming-flume-sink_2.11</artifactId>
+            <version>${spark.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-streaming-kafka-0-10_2.11</artifactId>
+            <version>${spark.version}</version>
+        </dependency>
 
 
         <!-- Test -->
@@ -226,7 +268,7 @@
                 <artifactId>scala-maven-plugin</artifactId>
                 <version>3.1.3</version>
                 <!--是否从该插件下载Maven扩展（例如打包和类型处理器），由于性能原因，
-                只有在真需要下载时，该元素才被设置成enabled。
+                只有在真需要下载时，该元素才被设置成enaAppenderbled。
                 在构建生命周期中执行一组目标的配置。每个目标可能有不同的配置。
                 -->
                 <executions>

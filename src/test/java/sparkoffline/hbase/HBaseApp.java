@@ -22,7 +22,8 @@ public class HBaseApp {
     Table table = null;
     Admin admin = null;
 
-    String tabName = "hbase_java_api";
+//    String tabName = "hbase_java_api";
+    String tabName = "access_20190130";
 
     @Before
     public void setUp(){

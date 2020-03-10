@@ -4,7 +4,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 //import com.ggstar.util.ip.IpHelper;
-import utils.IPParser;
+import streaming.project.utils.IPParser;
 
 public class TestApp {
 

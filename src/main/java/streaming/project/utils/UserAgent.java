@@ -1,6 +1,4 @@
-package utils;
-
-import org.apache.commons.lang.StringUtils;
+package streaming.project.utils;
 
 public class UserAgent {
     /**

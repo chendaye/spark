@@ -1,4 +1,4 @@
-package utils;
+package streaming.project.utils;
 
 
 public class IPParser extends IPSeeker {

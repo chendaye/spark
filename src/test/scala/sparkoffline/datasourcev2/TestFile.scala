@@ -4,7 +4,7 @@ package sparkoffline.datasourcev2
 import org.apache.spark.sql.Row
 import org.scalatest.DiagrammedAssertions
 import org.scalatest.FunSuite
-import utils.{IPParser, UserAgent, UserAgentParser}
+import streaming.project.utils.{IPParser, UserAgent, UserAgentParser}
 
 import scala.io.Source
 import scala.util.matching.Regex

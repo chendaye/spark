@@ -1,9 +1,12 @@
 package sparkoffline.test
 
+import java.util.{Date, Locale}
+
+import org.apache.commons.lang3.time.FastDateFormat
 import org.apache.spark.rdd.RDD
 import org.apache.spark.sql.types.{StringType, StructField, StructType}
 import org.apache.spark.sql.{DataFrame, Dataset, Row, SparkSession}
-import utils.{IPParser, UserAgent, UserAgentParser}
+import streaming.project.utils.{IPParser, UserAgent, UserAgentParser}
 
 import scala.util.matching.Regex
 
@@ -28,10 +31,21 @@ object TestApp {
    * @param spark
    */
   def testCustomDataSourceV2(spark:SparkSession): Unit ={
-    val frame: DataFrame = spark.read.format("sparkoffline.datasourcev2")
+    val frame: DataFrame = spark.read.format("sparkoffline.datasourcev2.log")
       .option("path", "data/test-access.log").load()
 
-    frame.show()
+    // 自定义函数
+    import org.apache.spark.sql.functions._
+    def formatTime() = udf((time: String) => {
+      FastDateFormat.getInstance("yyyyMMddHHmm").format(
+        new Date(FastDateFormat.getInstance("dd/MMM/yyyy:HH:mm:ss Z", Locale.ENGLISH)
+          .parse(time).getTime)
+      )
+    })
+    // DF上添加修改字段
+    val dataFrame: DataFrame = frame.withColumn("formattime", formatTime()(frame("time")))
+    dataFrame.show()
+
   }
 
   /**

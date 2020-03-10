@@ -1,4 +1,4 @@
-package sparkoffline.redis;
+package sparkoffline.streaming.redis;
 
 import org.junit.After;
 import org.junit.Assert;

@@ -1,4 +1,4 @@
-package utils;
+package streaming.project.utils;
 
 import cz.mallat.uasparser.OnlineUpdater;
 import cz.mallat.uasparser.UASparser;

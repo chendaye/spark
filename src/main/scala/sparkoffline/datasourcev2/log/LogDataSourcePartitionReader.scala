@@ -4,7 +4,7 @@ import org.apache.spark.sql.Row
 import org.apache.spark.sql.catalyst.InternalRow
 import org.apache.spark.sql.catalyst.encoders.{ExpressionEncoder, RowEncoder}
 import org.apache.spark.sql.sources.v2.reader.InputPartitionReader
-import utils.{IPParser, UserAgent, UserAgentParser}
+import streaming.project.utils.{IPParser, UserAgent, UserAgentParser}
 
 import scala.io.{BufferedSource, Source}
 import scala.util.matching.Regex
