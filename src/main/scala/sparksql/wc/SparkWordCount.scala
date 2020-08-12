@@ -23,10 +23,10 @@ object SparkWordCount {
     val sc = new SparkContext(sparkConf)
 
     // 读取文件的每一行
-    var rdd = sc.textFile("D:\\WHU\\sparksql\\data\\wc.txt")
+    var rdd = sc.textFile("data/wc.txt")
     // 处理每一行
     rdd.flatMap(_.split(",")).map(word => (word.toLowerCase(), 1)).reduceByKey(_+_).
-      saveAsTextFile("D:\\WHU\\sparksql\\data\\wc_out")
+      saveAsTextFile("output/wc_out")
 //    rdd.collect().foreach(println)
     // 停止
     sc.stop()
