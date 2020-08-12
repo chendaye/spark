@@ -26,7 +26,9 @@ object SparkWordCount {
     var rdd = sc.textFile("data/wc.txt")
     // 处理每一行
     rdd.flatMap(_.split(",")).map(word => (word.toLowerCase(), 1)).reduceByKey(_+_).
+
       saveAsTextFile("output/wc_out")
+
 //    rdd.collect().foreach(println)
     // 停止
     sc.stop()
