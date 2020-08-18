@@ -1,3 +1,0 @@
-Long,long,wc,yes
-Yes,wc,yes,long
-Long,lengo,lengo
