@@ -19,15 +19,15 @@ object Option {
     books.get("hive")
 
     //Option类型还提供了getOrElse方法，这个方法在这个Option是Some的实例时返回对应的值，而在是None的实例时返回传入的参数
-    val sales=books.get("hive")
-    sales.getOrElse("No Such Book")
-    println(sales.getOrElse("No Such Book"))
+    //val sales=books.get("hive")
+    //sales.getOrElse("No Such Book")
+   // println(sales.getOrElse("No Such Book"))
 
 
     // 在Scala中，使用Option的情形是非常频繁的。在Scala里，经常会用到Option[T]类型，
     // 其中的T可以是Sting或Int或其他各种数据类型。Option[T]实际上就是一个容器，
     // 我们可以把它看做是一个集合，只不过这个集合中要么只包含一个元素（被包装在Some中返回），
     // 要么就不存在元素（返回None）。既然是一个集合，我们当然可以对它使用map、foreach或者filter等方法。比如
-    books.get("hive").foreach(println)
+    //books.get("hive").foreach(println)
   }
 }

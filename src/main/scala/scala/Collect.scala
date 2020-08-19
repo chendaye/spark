@@ -73,7 +73,7 @@ class Collect {
      * 下划线是占位符，用来表示当前获取的两个元素，两个下划线之间的是操作符，表示对两个元素进行的操作，
      * 这里是加法操作（你也可以使用乘法*或者减法-等其他操作）
      */
-    val list2 = List(1,2,3,4,5)
+    val list22 = List(1,2,3,4,5)
     list.reduceLeft(_ + _)
     list.reduceRight(_ + _)
     // 可以直接使用reduce，而不用reduceLeft和reduceRight，这时，默认采用的是reduceLeft

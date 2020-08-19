@@ -201,7 +201,7 @@ object Convert2 {
 // 在使用的时候导入
 import Convert2.bracket
 
-object ScalaApp extends App {
+object ScalaApp22 extends App {
   def formatted(context: String)(implicit deli: Delimiters): Unit = {
     println(deli.left + context + deli.right)
   }

@@ -38,7 +38,7 @@ object BroadcastVariableOptimize {
        * 但是for/yield所做的事情可以有更简单的实现方式，那就是map()方法。
        */
       for((k,v) <- x if broadcast.contains(k))
-        yield (k, broadcast.get(k).getOrElse(""), v._2)
+        yield (k, broadcast.get(k), v._2)
     }).foreach(println)
 
     // todo:扩展 ETL中 logs join Ip ； 可以用广播变量代替 join， 避免shuffle
