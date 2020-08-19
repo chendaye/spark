@@ -9,7 +9,7 @@ package scala
  * Option类包含一个子类Some，当存在可以被引用的值的时候，就可以使用Some来包含这个值，
  * 例如Some(“Hadoop”)。而None则被声明为一个对象，而不是一个类，表示没有值。
  */
-object Option {
+object OptionLearn {
   def main(args: Array[String]): Unit = {
     //首先我们创建一个映射
     val books=Map("hadoop"->5,"spark"->10,"hbase"->7)

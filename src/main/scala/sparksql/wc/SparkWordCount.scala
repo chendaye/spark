@@ -29,7 +29,7 @@ object SparkWordCount {
 
       saveAsTextFile("output/wc_out")
 
-//    rdd.collect().foreach(println)
+    rdd.collect().foreach(println)
     // 停止
     sc.stop()
   }
