@@ -23,10 +23,10 @@ object SparkWordCountSort {
     val sc = new SparkContext(sparkConf)
 
     // 读取文件的每一行
-    var rdd = sc.textFile("D:\\WHU\\sparksql\\data\\wc.txt")
+    var rdd = sc.textFile("data/wc.txt")
     // todo:要求按单词数量降序排列
     rdd.flatMap(_.split(",")).map(word => (word.toLowerCase(), 1)).reduceByKey(_+_)
-      .map(x => (x._2, x._1)).sortByKey(false).map(x => (x._2, x._1)).saveAsTextFile("D:\\WHU\\sparksql\\data\\wc_out")
+      .map(x => (x._2, x._1)).sortByKey(false).map(x => (x._2, x._1)).saveAsTextFile("output/wc_sort/out")
 //    rdd.collect().foreach(println)
     // 停止
     sc.stop()
