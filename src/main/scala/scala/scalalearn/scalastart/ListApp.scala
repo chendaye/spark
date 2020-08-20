@@ -1,4 +1,4 @@
-package scalalearn.scalastart
+package scala.scalalearn.scalastart
 
 object ListApp {
   def main(args: Array[String]): Unit = {

@@ -1,4 +1,4 @@
-package scalalearn.scalastart
+package scala.scalalearn.scalastart
 
 object ArrayApp extends App {
   // 新建数组方法 1

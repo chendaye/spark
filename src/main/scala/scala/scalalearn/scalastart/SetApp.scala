@@ -1,4 +1,4 @@
-package scalalearn.scalastart
+package scala.scalalearn.scalastart
 
 import scala.collection.mutable
 

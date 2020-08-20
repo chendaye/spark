@@ -1,4 +1,4 @@
-package scalalearn.ObjectOriented
+package scala.scalalearn.ObjectOriented
 
 object ApplyClass {
   def main(args: Array[String]): Unit = {

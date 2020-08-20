@@ -1,4 +1,4 @@
-package scalalearn.Function
+package scala.scalalearn.Function
 
 object StringApp extends App {
   // 拼接字符串

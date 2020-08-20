@@ -1,4 +1,4 @@
-package scalalearn.Function
+package scala.scalalearn.Function
 
 /**
  * 匿名函数

@@ -1,4 +1,4 @@
-package scalalearn.ModeMatch
+package scala.scalalearn.ModeMatch
 
 /**
  * 异常处理

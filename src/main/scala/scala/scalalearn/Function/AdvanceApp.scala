@@ -1,4 +1,4 @@
-package scalalearn.Function
+package scala.scalalearn.Function
 
 object AdvanceApp extends App{
   val l = List(1, 2, 3, 4, 5, 6)
