@@ -44,10 +44,10 @@ object LogETLApp {
 
     // todo: 清洗数据
     var frame: DataFrame = spark.read.format("sparkoffline.datasourcev2.log")
-      .option("path", "data/test-access.log").load()
+      .option("path", "data/log/access.log").load()
 
     val day: String = "20190130" // 先写死后续通过脚本传给spark-submit
-    val input: String = s"hdfs://master:8020/access/$day/*"
+    val input: String = s"hdfs://master:9000/access/$day/*"
 
     // 自定义函数
     import org.apache.spark.sql.functions._
@@ -115,7 +115,7 @@ object LogETLApp {
 //    habaseRDD.collect().foreach(println)
     // todo: 连接hbase
     val conf: Configuration = new Configuration()
-    conf.set("hbase.rootdir", "hdfs://master:8020")
+    conf.set("hbase.rootdir", "hdfs://master:9000")
     conf.set("hbase.zookeeper.quorum", "master:2181")
 
     // todo: 建表
@@ -124,7 +124,7 @@ object LogETLApp {
     conf.set(TableOutputFormat.OUTPUT_TABLE, tabName)
     // todo: 保存数据
     habaseRDD.saveAsNewAPIHadoopFile(
-      "hdfs://master:8020/etl/access/hbase",  // path
+      "hdfs://master:9000/etl/access/hbase",  // path
       classOf[ImmutableBytesWritable], // keyClass
       classOf[Put], // valueClass
       classOf[TableOutputFormat[ImmutableBytesWritable]], // outputFormatClass

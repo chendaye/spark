@@ -29,7 +29,7 @@ object AnalysisRDDApp {
     val day: String = "20190130"
     //Todo: 连接hbase
     val conf: Configuration = new Configuration()
-    conf.set("hbase.rootdir", "hdfs://master:8020")
+    conf.set("hbase.rootdir", "hdfs://master:9000")
     conf.set("hbase.zookeeper.quorum", "master:2181")
     // 设置表
     val tabName:String = s"access_$day"
