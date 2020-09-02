@@ -532,7 +532,7 @@ object RDDLearn {
   }
 
   /**
-   * todo: fold
+   * todo: foldl
    *    - 折叠操作，aggregate的简化操作，seqop和combop一样。
    *
    *    创建一个RDD，将所有元素相加得到结果
@@ -607,7 +607,6 @@ object RDDLearn {
     val sc = new SparkContext(sparkConf)
     cogroup_oprator(sc)
     sc.stop()
-
   }
 
 

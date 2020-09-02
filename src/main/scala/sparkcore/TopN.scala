@@ -23,5 +23,7 @@ object TopN {
       .flatMap({case (key, iterator) => {
         iterator.toList.sorted.takeRight(N).map(x => (key, x))
       }}).foreach(println(_))
+
+    sc.stop()
   }
 }
